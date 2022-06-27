@@ -1,0 +1,83 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:beige">CRUD angular</h1>
+        <div class="d-flex">
+            <button (click)= "clickAddPersonal()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">anadir</button>
+        </div>
+    </div>
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Num. telefonico</th>
+            <th scope="col">Salario</th>
+            <th scope="col">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let row of personalData">
+            <td>{{row.id}}</td>
+            <td>{{row.apellido}}</td>
+            <td>{{row.nombre}}</td>
+            <td>{{row.correo}}</td>
+            <td>{{row.NumTelefonico}}</td>
+            <td>{{row.salario}}</td>
+            <td>
+                <button (click)= "onEdit(row)" style="color:aliceblue;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Editar</button>
+                <button (click)= "deletePersonal(row)" class="btn btn-danger mx-3">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detalles del empleado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]= "formValue">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                  <input type="text" formControlName="apellido" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Nombre</label>
+                  <input type="text" formControlName="nombre" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Correo</label>
+                    <input type="email" formControlName="correo" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Num. telefonico</label>
+                    <input type="text" formControlName="NumTelefonico" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Salario</label>
+                    <input type="text" formControlName="salario" class="form-control" id="exampleInputPassword1">
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf= "showAdd" (click)= "postPersonalDetails()" class="btn btn-primary">Anadir</button>
+          <button type="button" *ngIf= "showUpdate" (click)= "updatePersonalDetails()" class="btn btn-primary">Actualizar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "apellido": "sanchez",
+      "nombre": "caro",
+      "correo": "carosanch@gmail.com",
+      "NumTelefonico": "9831675849",
+      "salario": "30000"
+    },
+    {
+      "id": 1,
+      "apellido": "Hoy",
+      "nombre": "Dayana",
+      "correo": "dayanahoy5@gmail.com",
+      "NumTelefonico": "9831363341",
+      "salario": "10000"
+    },
+    {
+      "IDpersonal": 0,
+      "apellido": "test2",
+      "nombre": "test2",
+      "correo": "test2@gmail.com",
+      "NumTelefonico": "9831363341",
+      "salario": "10000",
+      "id": 4
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
